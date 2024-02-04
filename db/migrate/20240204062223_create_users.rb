@@ -1,11 +1,11 @@
-class User < ActiveRecord::Migration[7.1]
+class CreateUsers < ActiveRecord::Migration[7.1]
   def change
-    create_table :Users do |t|
+    create_table :users do |t|
       t.string :username
-      t.text :email
+      t.string :email
       t.string :password_digest
+
       t.timestamps
     end
-    
   end
 end

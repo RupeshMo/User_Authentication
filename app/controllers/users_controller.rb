@@ -5,12 +5,11 @@ class UsersController < ApplicationController
   end
 
   def create 
-    @user = User.new(params.require(:user).permit(:username, :email, :password_digest))
+    @user = User.new(params.require(:user).permit(:username, :email, :password))
     if @user.save
-      redirect_to user_path
-      
+      redirect_to '/'
     else
-      render :new
+      render :new, status: :unprocessable_entity
+      end
     end
   end
-end

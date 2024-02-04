@@ -1,0 +1,9 @@
+<% if @user.errors.any?%>
+<h1> Following errors stopped you from proceeding</h1>
+  <ul>
+  <% @user.errors.full_messages.each do |msg|%>
+    <li> <%= msg%>
+  
+  <%end%>
+  </ul>
+<%end%>
