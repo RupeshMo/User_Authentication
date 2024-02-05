@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all
+  end
+  
   def new
     @user = User.new
   end
@@ -24,7 +28,7 @@ class UsersController < ApplicationController
   def create 
     @user = User.new(params_hash)
     if @user.save
-      redirect_to '/users/:id'
+      redirect_to user_path(@user)
     else
       render :new, status: :unprocessable_entity
       end

@@ -1,0 +1,19 @@
+<h4>Welcome Users</h4>
+
+<%# <div>Total <%= pluralize(@users.count)%>
+
+<div class="show-container">
+  <% @users.each do |t| %>
+
+    <div>
+      
+      <ul>
+        <li>Username: <%= link_to t.username, t%></li>
+        <li>Created at:  <%=t.created_at%>
+        <li>Updated at:  <%=t.updated_at%>
+      </ul>
+    </div>
+  <%end%>
+
+  <%= link_to "Signup", '/signup'%>
+</div>

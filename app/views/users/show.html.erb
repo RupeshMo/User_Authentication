@@ -4,4 +4,10 @@
     <span class="user-name"><%= @user.username%></span>
     Created this at : <%= @user.created_at%> and updated at : <%= @user.updated_at%>
   </li>
+  <li><%= link_to "Home/root", '/'%></li>
+  <li><%= link_to "edit", 'users/:id/edit'%></li>
+      <li class="button"><%= link_to "Destroy", '/logout', data: {
+                      turbo_method: :delete}%>
+                      </li>
+                      
 </ul>

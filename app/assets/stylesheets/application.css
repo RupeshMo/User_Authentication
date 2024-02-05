@@ -36,9 +36,12 @@
  .button {
   background-color: rgb(186, 185, 255);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  width: 150px;
-  display: flex;
-  align-items: center;
+  width:150px;
+  margin: auto;
+  padding: auto;
+  height: 40px;
+  border: 1.4px solid rgb(255, 0, 43);
+  border-radius: 6px;
 
  }
 
@@ -73,4 +76,15 @@
   font-weight: 900;
   font-size: larger;
   padding: 20px;
+ }
+
+ 
+ div.show-container {
+  width: 65%;
+  margin: auto;
+  border: 1.4px solid rgb(1, 84, 209);
+  padding: 8px;
+  border-radius: 14px;
+  background-color: rgb(233, 230, 242);
+  box-shadow: inset;
  }

@@ -1,11 +1,7 @@
-<%= render 'shared/errors'%>
+<h1>Log in</h1>
 
 <div class="form-container">
-  <%= form_with(model: @user) do |f| %>
-  <div class="form-field">
-    <%= f.label :username, class: 'label' %>
-    <%= f.text_field :username,  class: 'label',placeholder: "Enter username"%>
-  </div>
+  <%= form_with scope: :session, url: login_path do |f| %>
   <div class="form-field">
     <%= f.label :email, class: 'label'%>
     <%= f.email_field :email, class: 'label' , placeholder: "Enter email"%>
@@ -15,7 +11,7 @@
     <%= f.password_field :password, class: 'label', placeholder: "Enter password"%>
   </div>
   <div class="button">
-    <%= f.submit%>
+    <%= f.submit "login"%>
   </div>
     <%end%> 
 </div>
