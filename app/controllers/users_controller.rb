@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:edit, :update, :show]
 
   def index
     @users = User.all
@@ -9,11 +10,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+  
   end
 
   def update
-  @user = User.find(params[:id])
+  
     if @user.update(params_hash)
       redirect_to user_path
     else
@@ -22,12 +23,13 @@ class UsersController < ApplicationController
   end
 
   def show
-  @user = User.find(params[:id])
+  
   end
 
   def create 
     @user = User.new(params_hash)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render :new, status: :unprocessable_entity
@@ -38,5 +40,9 @@ class UsersController < ApplicationController
     private
     def params_hash
       params.require(:user).permit(:username, :email, :password)
+    end
+
+    def set_user
+      @user = User.find(params[:id])
     end
   end
