@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :show]
+  before_action :set_user, only: [:edit, :update, :show, :destroy]
   before_action :require_user, except: [:index, :create, :new]
   before_action :require_same_user, except: [:index, :create, :new]
 
@@ -42,6 +42,14 @@ class UsersController < ApplicationController
       render :new, status: :unprocessable_entity
       end
   end
+
+  def destroy
+    @user.destroy
+    session[:user_id] = nil
+    redirect_to '/', status: :see_other, notice: "Account deleted sucessfully"
+    
+  end
+
 
 
     private

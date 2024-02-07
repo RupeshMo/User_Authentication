@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: "users#show", as: 'user'
   # get '/users/:id/edit', to: "users#edit"
   # patch '/users/:id', to: "users#update"
-  resources :users, :only => [:edit, :update]
+  resources :users, :only => [:edit, :update, :destroy]
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'  
