@@ -1,8 +1,8 @@
 <h1 class="headings">Welcome to UserAuthentication</h1>
 
-<div class="options-container">
-  <ul>
-    <li class="button"><%=link_to "Create new user", '/signup' %></li> <!-- /signup works without url: '/signup' -->
+<div class="form-field">
+  <ul class="label">
+    <li class="button "><%=link_to "Create new user", '/signup' %></li> <!-- /signup works without url: '/signup' -->
     <li class="button"><%=link_to "Login" , '/login'%></li>
     <% if logged_in?%>
       <li> <%= link_to current_user.username, user_path(current_user)%>

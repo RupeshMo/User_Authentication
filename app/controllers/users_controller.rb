@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show]
+  before_action :require_user, except: [:index, :create, :new]
+  before_action :require_same_user, except: [:index, :create, :new]
 
   def index
     @users = User.all
@@ -23,7 +25,12 @@ class UsersController < ApplicationController
   end
 
   def show
-  
+    # @user = User.find(params[:id])
+    # render plain: "#{@user.username}, #{current_user.username}, #{logged_in?}"
+    # if !logged_in? && @user != current_user
+      
+    #   redirect_to '/' , notice: "You are not logged in!! Permission denied"
+    # end
   end
 
   def create 
@@ -44,5 +51,12 @@ class UsersController < ApplicationController
 
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def require_same_user
+      if current_user != @user
+        # redirect_to login_path notice: "You can only edit or delete your own account" :: results in url : http://localhost:3000/login?notice=You+can+only+edit+or+delete+your+own+account
+        redirect_to '/users', notice: "You can only edit or delete your own account"
+      end
     end
   end

@@ -1,17 +1,27 @@
 <h1>This space belongs to :</h1>
-<ul>
-  <li>
-    <span class="user-name"><%= @user.username%></span>
-    Created this at : <%= @user.created_at%> and updated at : <%= @user.updated_at%>
-  </li>
-  <li><%= link_to "Home/root", '/'%></li>
-  <li><%= link_to "edit", edit_user_path%></li>
+  <ul>
+    <li>
+      <span class="user-name"><%= @user.username%></span>
+      Created this at : <%= @user.created_at%> and updated at : <%= @user.updated_at%>
+    </li>
+    
+    <li>
+      <%= link_to "Home/root", '/'%>
+    </li>
+    
+    
 
-  <% if logged_in? %>
-    <li class="button"><%= link_to "Logout", '/logout', data: {
-                      turbo_method: :delete}%>
-                      </li>
-  
-  <% end%>
-                      
-</ul>
+    <% if logged_in? && current_user == @user %>
+      <li class="button">
+        <%= link_to "Logout", '/logout', data: {
+                        turbo_method: :delete}%>
+      </li>
+      
+      <li>
+        <%= link_to "edit", edit_user_path%>
+      </li>
+        <%= current_user.email%>    
+    <% end%>
+
+                        
+  </ul>

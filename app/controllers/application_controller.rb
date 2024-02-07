@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user # boolean
   end
+
+  def require_user
+    if !logged_in?
+      redirect_to login_path, notice: 'Not logged in to perform this action'
+    end
+  end
 end
