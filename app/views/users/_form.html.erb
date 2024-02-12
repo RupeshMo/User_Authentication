@@ -1,24 +1,32 @@
 <%= render 'shared/errors'%>
 
 <div class="form-container">
-  <%= form_with(model: @user) do |f| %>
-  <div class="form-field">
-    <%= f.label :username, class: 'label' %>
-    <%= f.text_field :username ,placeholder: "Enter username", class: 'input'%>
+  
+    <%= form_with(model: @user) do |f| %>
+  <div class="form-container-inner">
+    <div class="form-field">
+        <%= f.label :username, class: 'label' %>
+        <%= f.text_field :username ,placeholder: "Enter username", class: 'input'%>
+    </div>
+
+    <div class="form-field">
+        <%= f.label :email, class: 'label'%>
+        <%= f.email_field :email, placeholder: "Enter email",class: 'input'%>
+    </div>
+
+    <div class="form-field">
+        <%= f.label :password , class: 'label' %>
+        <%= f.password_field :password, placeholder: "Enter password", class: 'input'%>
+    </div>
+
+    <div class="button">
+        <%= f.submit%>
+    </div>
   </div>
-  <div class="form-field">
-    <%= f.label :email, class: 'label'%>
-    <%= f.email_field :email, placeholder: "Enter email",class: 'input'%>
-  </div>
-  <div class="form-field">
-    <%= f.label :password , class: 'label' %>
-    <%= f.password_field :password, placeholder: "Enter password", class: 'input'%>
-  </div>
-  <div class="button">
-    <%= f.submit%>
-  </div>
+  <%end%> 
+ 
 </div>
-<%end%> 
+
 
   
 </div>

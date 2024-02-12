@@ -1,0 +1,13 @@
+<div class="navigation-panel">
+  <div class="navigation-items">
+      <%=link_to "Home" , '/', class: "link"%>
+      <%=link_to "Signup", '/signup', class: "link" %>
+      <%=link_to "Users" , '/users', class: "link"%>
+      
+      <% if logged_in?%>
+        <%= "(Admin)" if current_user.admin? %><%= link_to current_user.username, logout_path, data: { turbo_method: :delete }, class: "link"%>(logout)
+      <%else %>
+        <%=link_to "Login" , '/login', class: "link"%>
+    <%end%>
+  </div>  
+</div>

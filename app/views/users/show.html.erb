@@ -1,28 +1,26 @@
 <h1>This space belongs to :</h1>
-  <ul>
-    <li>
-      <span class="user-name"><%= @user.username%></span>
-      Created this at : <%= @user.created_at%> and updated at : <%= @user.updated_at%>
-    </li>
-    
-    <li>
-      <%= link_to "Home/root", '/'%>
-    </li>
-    
-    
-
-    <% if logged_in? && current_user == @user %>
-      <li class="button">
-        <%= link_to "Logout", '/logout', data: {
-                        turbo_method: :delete}%>
+  <div class="form-container">
+    <div>
+    <ul>
+      <li class="description form-container-inner">
+        <%= @user.username%>
       </li>
+      <li class="description form-container-inner">
+        Created this at : <%= @user.created_at%> and updated at : <%= @user.updated_at%>
+      </li>
+      <div class="form-container-inner">
+        <% if logged_in? %>
+          <% if @user == current_user%>
+            <%= link_to "Edit", edit_user_path, class: "button"%>
+            <%= link_to "Delete Account", user_path(current_user), class: "button", data: {turbo_method: :delete, turbo_confirm: "Are You Sure?"}%>
+            <% end %>
+            <% if current_user.admin?%>
+              <%= link_to "Delete Account", user_path(@user), class: "button", data: {turbo_method: :delete, turbo_confirm: "Are You Sure?"}%>      
+            <%end%>
+          <%end%>
+      <%= link_to "Home/root", '/', class: "button"%>
+
       
-      <li>
-        <%= link_to "edit", edit_user_path%>
-      </li>
-        <%= current_user.email%>
-        <li class="button"><%=link_to "Delete" , user_path(current_user), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
-    <% end%>
-
-                        
-  </ul>
+      </div>
+    </ul>
+  </div>

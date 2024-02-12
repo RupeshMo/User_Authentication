@@ -2,18 +2,24 @@
 
 <%# <div>Total <%= pluralize(@users.count)%>
 
-<div class="show-container">
+<div class="form-container">
   <% @users.each do |t| %>
-
-    <div>
-      
+    <div class="form-container-inner">
       <ul>
-        <li>Username: <%= link_to t.username, t%></li>
-        <li>Created at:  <%=t.created_at%>
-        <li>Updated at:  <%=t.updated_at%>
-        </ul>
+        <li>Username:</li>
+          <% if logged_in? && (t == current_user || current_user.admin?)%>
+           <%= link_to t.username, t%>
+           <%else%>
+           <%= t.username%>
+           <%end%>
+        
+      </ul>
     </div>
   <%end%>
-
-  <%= link_to "Signup", '/signup'%>
 </div>
+
+
+ <div>
+  <%= link_to "Signup", '/signup', class: "button"%>
+ </div>
+ 
