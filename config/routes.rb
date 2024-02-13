@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   # post '/users/:id', to: "users#update"
   # Defines the root path route ("/")
   # root "posts#index"  
+
+  get 'articles', to: 'articles#index'
+  get 'articles/:id', to: 'articles#show', as: 'article'
+  get 'new', to: 'articles#new'
 end
