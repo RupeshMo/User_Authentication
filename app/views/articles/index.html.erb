@@ -1,1 +1,15 @@
 This is articles listing page
+
+<div class="outer-container">
+<% @articles.each do |article|%>
+  <div class="article-container">
+    <div class="article-header">
+      <%= article.title%>
+    </div>
+    
+    <div class="article-body">
+      <%= article.description%>
+    </div>
+  </div>
+<%end%>
+</div>
