@@ -3,7 +3,7 @@
 <h1>Create new article.....</h1>
 
 <div class="form-container">
-  <%= form_with model: @article, url: '/articles', method: :post, local: true do |f|%>
+  <%= form_with model: @article do |f|%>
     <%=f.label :title%>
     <%=f.text_field :title%>
         

@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   get 'articles/:id', to: 'articles#show', as: 'article'
   post '/articles', to: 'articles#create'
   get 'articles/:id/edit', to: 'articles#edit'  
+  patch 'articles/:id', to: 'articles#update'
 end
