@@ -1,8 +1,8 @@
-<%= render 'shared/errors'%>
+<%= render 'shared/errors', object: @user%>
 
 <div class="form-container">
   
-    <%= form_with(model: @user) do |f| %>
+    <%= form_with(model: @user ) do |f| %>
   <div class="form-container-inner">
     <div class="form-field">
         <%= f.label :username, class: 'label' %>

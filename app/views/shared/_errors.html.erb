@@ -1,7 +1,7 @@
-<% if @user.errors.any?%>
-<h1> Following errors stopped you from proceeding</h1>
+<% if object.errors.any?%>
+  <h1> Following errors stopped you from proceeding</h1>
   <ul>
-  <% @user.errors.full_messages.each do |msg|%>
+  <% object.errors.full_messages.each do |msg|%>
     <li> <%= msg%>
   
   <%end%>

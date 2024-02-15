@@ -1,15 +1,20 @@
-This is articles listing page
+<div class= "include-title">This is articles listing page
+  <% @articles.each do |article|%>
+    <div class="article-parent-container">
+      <div class="parent-article-user-name">
+      <div class="article-user-name">
+        <%= article.user.username%>
+      </div>
+      </div>
 
-<div class="outer-container">
-<% @articles.each do |article|%>
-  <div class="article-container">
-    <div class="article-header">
-      <%= article.title%>
+      <div class="article-container">
+        <div class="article-header">
+          <%= article.title%>
+        </div>
+        <div class="article-body">
+          <%= article.description%>
+        </div>
+      </div>
     </div>
-    
-    <div class="article-body">
-      <%= article.description%>
-    </div>
-  </div>
-<%end%>
+  <%end%>
 </div>

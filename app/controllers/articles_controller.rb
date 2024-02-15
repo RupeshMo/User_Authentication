@@ -14,12 +14,19 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(require_params)
+    @article.user = current_user
+    
     if @article.save
       redirect_to article_path(@article)
+
     else
       render :new, status: :unprocessable_entity
     end
 
+  end
+
+  def edit
+    @article = Article.find(params[:id])
   end
 
   private
@@ -27,4 +34,8 @@ class ArticlesController < ApplicationController
   def require_params
     params.require(:article).permit(:title, :description)
   end
+
+  
+  # def require_user
+  #   if !logged_in? && current_user != @user
 end

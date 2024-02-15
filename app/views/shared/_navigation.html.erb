@@ -5,7 +5,8 @@
       <%=link_to "Users" , '/users', class: "link"%>
       
       <% if logged_in?%>
-        <%= "(Admin)" if current_user.admin? %><%= link_to current_user.username, logout_path, data: { turbo_method: :delete }, class: "link"%>(logout)
+        <%= link_to "Create new article", '/articles/new', class: "link"%>
+        <%= "(Admin)" if current_user.admin? %><%= link_to current_user.username, current_user, class: "linkuser"%>
       <%else %>
         <%=link_to "Login" , '/login', class: "link"%>
     <%end%>
