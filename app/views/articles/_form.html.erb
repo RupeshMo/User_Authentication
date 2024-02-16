@@ -2,15 +2,26 @@
 
 <h1>Create new article.....</h1>
 
-<div class="form-container">
-  <%= form_with model: @article do |f|%>
-    <%=f.label :title%>
-    <%=f.text_field :title%>
-        
-    <%=f.label :description%>
-    <%=f.text_area :description%>
-
-    <%= f.submit%>
-  <%end%>  
+<div class="article-form-container">
   
+  <%= form_with model: @article do |f|%>
+    <div class='form-fields'>
+      
+      <div class="title-field">
+        <%=f.label :title, class: "label"%>
+        <%=f.text_field :title, class: "input", placeholder: "Enter title"%>
+      </div>
+      
+      <div class="description-field">    
+        <%=f.label :description, class: "label"%>
+        <%=f.text_area :description, class: "input", placeholder: "Enter description"%>
+      </div>
+    
+    </div>
+    
+    <div class='article-button'>
+      <%= f.submit :Submit, class: "article-ff"%>
+    </div>
+  <%end%>  
+
 </div>

@@ -15,11 +15,17 @@
  */
 
  
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  /* border: 2px solid rgb(235, 9, 9); */
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
+
+:root {
+  --input-border: #8b8a8b;
+  --input-focus-h: 245;
+  --input-focus-s: 100%;
+  --input-focus-l: 42%;
 }
 
 div.navigation-panel {
@@ -107,17 +113,16 @@ div.form-container-inner{
   
 
 }
-.input {
+/* .input {
   /* border: 0.9px solid lightcoral; */
-  border: 0.4px solid black;
+  /* border: 0.4px solid black;
   border-radius: 3px;
   padding: 0.2rem;
   flex-shrink:6;
   background-color: rgb(255, 255, 255);
 
+   */
   
-  
-}
 
 .label {
   font-family: Arial, Helvetica, sans-serif;
@@ -164,8 +169,8 @@ ul {
 }
 
 html {
-  background-color: rgb(211, 242, 231);
-  color: rgb(54, 23, 23);
+  background-color: rgb(230, 230, 230);
+  color: rgb(134, 108, 108);
 }
 
 .article-parent-container {
@@ -175,7 +180,7 @@ html {
   display: flex;
   justify-content:center;
   gap: 3px;
-
+  /* box-shadow:  0.1px 0.1px 1px; */
 }
 
 .parent-article-user-name {
@@ -184,9 +189,9 @@ html {
   margin: 5px;
   width: 10%;
   display: flex;
-  
-  
   flex-shrink: 3;
+  
+  
 }
 
 .article-user-name {
@@ -194,34 +199,143 @@ html {
   padding: 3px;
   margin-right: 5px;
   flex-shrink: 1;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  /* box-shadow:  0.1px 0.1px 1px; */
+
 }
 
 .article-container {
   /* border: 1px solid rgb(243, 215, 79); */
-  padding: 0.3px;
+  padding: 3px;
   max-width: 300px;
   width: 300px;
-  box-shadow:  0.4px 0.4px 1.5px;
-  border-radius: 6px;
+  box-shadow:  0.1px 0.1px 1px;
+  border-radius: 2px;
   flex-shrink: 0;
+  height: auto;
+
 }
 
 .article-header {
   /* border: 1px solid rgb(98, 8, 98); */
-  padding: 0.3px;
+  padding-top: 2px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom: 1px solid rgb(205, 204, 204);
+
 }
 
 .article-body {
   /* border: 1px solid rgb(211, 13, 17); */
-  padding: 0.3px;
+  margin: 3px;
+  font-size: 14px;
+}
+
+.article-form-container {
+}
+
+.title-field {
+ width: 350px;
+ /* border: 2px solid  black; */
+ display: flex;
+ justify-content: end;
+ align-items: baseline;
+
+
+}
+
+.input {
+  font-size: 10px;
+  font-size: max(16px, 1em);
+  font-family: inherit;
+  padding: 0.25em 0.5em;
+  background-color: #353434;
+  /* border: 2px solid var(--input-border);
+  border-radius: 4px; */
+  /* transition: 180ms box-shadow ease-in-out; */
+  outline: none;
+  width: 250px;
+  min-height: 20px;
+  border: 0.2px solid rgb(82, 0, 94);
+  box-shadow: 0 0 8px rgb(255, 255, 255) ;
+  border-radius: 4px;
+  color: white;
+  
+  
+}
+
+.input:not(textarea) {
+  line-height: 1;
+  height: 2.25rem;
+}
+
+textarea.input {
+  resize: vertical;
+  min-height: 20px;
+}
+/* 
+.input:focus {
+  border-color: hsl(var(--input-focus-h), var(--input-focus-s), var(--input-focus-l));
+  box-shadow: 0 0 0 3px hsla(var(--input-focus-h), var(--input-focus-s), calc(var(--input-focus-l) +
+          40%), 0.8);
+} */
+
+.label {
+  max-width: 100px;
+  min-width: 100px;
+  flex-shrink: 0;
+  font-size: 0.8em;
+  padding: 2px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.description-field {
+  width: 350px;
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: end;
+  align-items: baseline;
+
+
+}
+
+.form-fields {
+  /* border: 1px solid grey; */
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: space-between;
+  height: 90px;
+
+}
+
+.article-button {
+  transition: cubic-bezier(0.215, 0.610, 0.355, 1);
+  transition-duration: 300ms;  
+  align-self: center;
 }
 
 
+.article-ff:hover {
+  border: 2px solid black;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
+.include-title {
+  display: flex;
 
+  justify-content: center;
+}
 
-
-
+.feed-background {
+  margin-top: 8px ;
+  /* border: 1px solid red; */
+  background-color: rgb(255, 251, 246);
+  width: 500px;
+  height: 500dvh;
+  box-shadow: 1px 1px 5px black;
+}
 
 
 
