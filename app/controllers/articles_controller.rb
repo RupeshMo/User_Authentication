@@ -1,14 +1,14 @@
 class ArticlesController < ApplicationController
 before_action :set_article, except: [:index, :new, :create]
-before_action :require_user, except: [:index, :show]
-before_action :require_same_user, except: [:index, :show]
+before_action :require_user, only: [:show, :new, :create, :edit, :update, :destroy]
+before_action :require_same_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @articles = Article.all
   end
 
   def show
-    # @article = Article.find(params[:id])
+    
   end
 
   def new
@@ -26,23 +26,20 @@ before_action :require_same_user, except: [:index, :show]
   end
 
   def edit
-    # @article = Article.find(params[:id])
-    # render plain: @article.user.id
+    # debugger
   end
 
   def update
-    # @article = Article.find(params[:id])
     if @article.update(require_params)
-      redirect_to article_path(@article)
+      redirect_to current_user
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    # @article = Article.find(params[:id])
     @article.destroy
-    redirect_to '/', status: :see_other, notice: "Article deleted sucessfully"
+    redirect_to current_user, status: :see_other, notice: "Article deleted sucessfully"
   end
 
   private
@@ -52,8 +49,8 @@ before_action :require_same_user, except: [:index, :show]
   end
 
   def require_same_user
-    if current_user != @user && !current_user.admin?
-      redirect_to '/articles', notice: "login to create new articles!!"
+    if current_user != @article.user && !current_user.admin?
+      redirect_to '/articles', notice: "Not Authorized to perform action"
     end
   end
 
@@ -61,6 +58,4 @@ before_action :require_same_user, except: [:index, :show]
     @article = Article.find(params[:id])
   end
 
-  # def require_user
-  #   if !logged_in? && current_user != @user
 end

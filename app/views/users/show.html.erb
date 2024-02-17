@@ -1,12 +1,65 @@
-<h1>This space belongs to :</h1>
-  <div class="form-container">
+<div class="users-space">
+  <div class= "include-title">
+    <div class="feed-background">
+      <% @user.articles.each do |article|%>
+        <!-- Articles -->
+        <div class="article-parent-container">
+          <div class="parent-article-user-name">
+            <div class="article-user-name">
+              <%= article.user.username%>
+            </div>
+          </div>
+
+          <div class="article-container">
+            <div class="article-header">
+              <%= article.title%>
+            </div>
+            <div class="article-body">
+              <%= article.description%>
+            </div>
+          
+
+          <!-- Actions -->
+            <div class="article-actions">
+              <%= link_to "Edit", edit_article_path(article), class: "edit-action"%> 
+              <%= link_to "Delete", article_path(article), data: {
+                  turbo_method: :delete, turbo_confirm: "Are you sure!"},
+                  class: "delete-action"%>
+            </div>
+          </div>
+      </div>
+      <%end%>
+    </div>
+  </div>
+  <%=link_to "logout", logout_path, data: {turbo_method: :delete}%>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- > <div class="">
     <div>
     <ul>
       <li class="description form-container-inner">
         <%= @user.username%>
       </li>
       <li class="description form-container-inner">
-        Created this at : <%= @user.created_at%> and updated at : <%= @user.updated_at%>
+        Created this at : <%= time_ago_in_words(@user.created_at)%>
       </li>
       <div class="form-container-inner">
         <% if logged_in? %>
@@ -19,9 +72,10 @@
             <%end%>
           <%end%>
       <%= link_to "Home/root", '/', class: "button"%>
-      <%= link_to "logout", logout_path, data: { turbo_method: :delete }%>
+      <%= link_to "logout", logout_path, data: { turbo_method: :delete }  %>
 
       
       </div>
     </ul>
   </div>
+  -->

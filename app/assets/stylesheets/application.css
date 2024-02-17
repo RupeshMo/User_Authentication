@@ -87,7 +87,7 @@ div.form-container-inner{
   font-family: inherit;
   padding: 0.2rem;
   display: flex;
-  border: 0.5px solid black;
+  /* border: 0.5px solid black; */
   justify-content: space-evenly;
   flex-basis: 200px;
   flex-direction: column;
@@ -169,8 +169,8 @@ ul {
 }
 
 html {
-  background-color: rgb(230, 230, 230);
-  color: rgb(134, 108, 108);
+  background-color: rgba(230, 230, 230, 0.403);
+  color: rgb(76, 72, 72);
 }
 
 .article-parent-container {
@@ -180,6 +180,7 @@ html {
   display: flex;
   justify-content:center;
   gap: 3px;
+  border: 0.2px solid black;
   /* box-shadow:  0.1px 0.1px 1px; */
 }
 
@@ -331,19 +332,43 @@ textarea.input {
 .feed-background {
   margin-top: 8px ;
   /* border: 1px solid red; */
-  background-color: rgb(255, 251, 246);
+  background-color: rgb(229, 227, 227);
   width: 500px;
-  height: 500dvh;
-  box-shadow: 1px 1px 5px black;
+  border-radius: 6px;
+  /* border: 0.2px solid blue; */
+  box-shadow: 0.2px 0.2px 3px rgb(0, 71, 125);
 }
 
+/* .button {
+  border: 3px solid red;
+}
+ */
 
 
+.users-space {
+  margin-top: 10px;
+  border: 0.22px solid black;
+  width: 100%;
+  height:auto;
+  padding-bottom: 10px;
+}
 
+.edit-action, .delete-action {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.7px;
+  text-decoration: none;
+  color: #353434;
+}
 
-
-
-
+.article-actions {
+  /* border: 1px 
+  solid black; */
+  display: flex; 
+  justify-content: end;
+  gap: 3px;
+  padding: 1.2px;
+}
 
 
 
