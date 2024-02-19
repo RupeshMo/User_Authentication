@@ -3,10 +3,11 @@
       <%=link_to "Home" , '/', class: "link"%>
       <%=link_to "Signup", '/signup', class: "link" %>
       <%=link_to "Users" , '/users', class: "link"%>
+      <%= link_to "Articles", articles_path, class: "link"%>
       
       <% if logged_in?%>
         <%= link_to "Create new article", '/articles/new', class: "link"%>
-        <%= "(Admin)" if current_user.admin? %><%= link_to current_user.username, current_user, class: "linkuser"%>
+        <%= "(Admin)" if current_user.admin? %><%= link_to current_user.username, current_user, class: "link"%>
       <%else %>
         <%=link_to "Login" , '/login', class: "link"%>
     <%end%>

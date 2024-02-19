@@ -1,6 +1,16 @@
-<h1 class="headings">Welcome to UserAuthentication</h1>
+<h1 class="home-heading">Welcome to a Blog-Website</h1>
 
 <div class="home-container">
-  <div class="button-signup "><%=link_to "Create new user", '/signup' %></div> <!-- /signup works without url: '/signup' -->
-  <div class="button-login"><%=link_to "Login" , '/login'%></div>
+  <% if logged_in?%>
+  <div class="home-buttons">
+    <%=link_to "Create a new blog", '/articles/new', class: "home-button"%>
+  </div>
+  <%else%>
+    <h1 class="home-declaration">Signup to start creating blogs or login</h1>
+    <div class="home-buttons">
+      <%=link_to "Signup", '/signup', class: "home-button"%>
+      <%=link_to "Login", '/login', class: "home-button"%>
+    </div>
+
+  <%end%>
 </div>
