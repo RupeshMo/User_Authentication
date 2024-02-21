@@ -24,6 +24,19 @@ before_action :require_admin, except: [:index, :show]
     @category = Category.find(params[:id])
     @articles = @category.articles
   end
+
+  def edit
+    @category= Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      redirect_to @category, notic: "Category name edited successfully"
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 private
   def category_params
     params.require(:category).permit(:name)
