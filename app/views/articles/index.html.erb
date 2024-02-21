@@ -14,7 +14,12 @@
         </div>
         <div class="article-body">
           <%= article.description%>
+          <% if article.categories.any?%>
+            <%= render article.categories%>
+          <%end%>
         </div>
+
+        
       </div>
     </div>
   <%end%>

@@ -1,0 +1,17 @@
+
+<div class= "include-title">
+  <div class="feed-background">
+  <% @categories.each do |category|%>
+    <div class="article-parent-container">
+      <div class="parent-article-user-name">
+      <div class="article-user-name">
+        <%=link_to category.name, category_path(category) %>
+        <%= pluralize(category.articles.count, "article")%>
+      </div>
+      </div>
+
+    </div>
+  <%end%>
+  </div>
+</div>
+

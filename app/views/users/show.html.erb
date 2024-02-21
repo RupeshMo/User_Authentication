@@ -18,6 +18,9 @@
               <%= article.description%>
             </div>
           
+          <% if article.categories.any?%>
+            <%= render article.categories%>
+          <%end%>
 
           <!-- Actions -->
             <div class="article-actions">

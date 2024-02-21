@@ -7,6 +7,7 @@
   <%= form_with model: @article do |f|%>
     <div class='form-fields'>
       
+      
       <div class="title-field">
         <%=f.label :title, class: "label"%>
         <%=f.text_field :title, class: "input", placeholder: "Enter title"%>
@@ -15,6 +16,17 @@
       <div class="description-field">    
         <%=f.label :description, class: "label"%>
         <%=f.text_area :description, class: "input", placeholder: "Enter description"%>
+      </div>
+
+      <div class="category-field">
+        <%=f.label :category, class: "label"%>
+        <%= f.collection_select :category_ids, Category.all, :id, :name, {
+          prompt: "Make your selection"
+        },
+        { multiple: true}
+         %>
+
+        <%# <%=f.text_field :title, class: "input", placeholder: "Enter title"%>
       </div>
     
     </div>

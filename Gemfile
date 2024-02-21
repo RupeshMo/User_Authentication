@@ -4,6 +4,10 @@ ruby "3.2.2"
 
 gem 'psych', '~> 3.0'
 
+# gem 'will_paginate'
+
+# gem 'mislav-will_paginate', '~> 2.2' 
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3"
 

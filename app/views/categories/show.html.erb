@@ -1,0 +1,48 @@
+<%= @category.name%>
+<div class="users-space">
+  <div class= "include-title">
+    <div class="feed-background">
+      <% @articles.each do |article|%>
+        <div class="article-parent-container">
+          <div class="parent-article-user-name">
+            <div class="article-user-name">
+              <%= article.user.username%>
+            </div>
+          </div>
+
+          <div class="article-container">
+            <div class="article-header">
+              <%= article.title%>
+            </div>
+          <div class="article-body">
+              <%= article.description%>
+                <% if article.categories.any?%>
+                  <%= render article.categories%>
+                <%end%>
+          </div>
+      <%end%>
+    </div>
+  </div>
+
+           <!-- Actions -->
+            <div class="article-actions">
+              <% if logged_in?%>
+                <% if current_user.admin?%>
+              <%= link_to "Edit", edit_category_path(@category), class: "edit-action"%>
+              <%end%>
+            <%end%>
+            </div>
+     
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -45,7 +45,7 @@ before_action :require_same_user, only: [:show, :edit, :update, :destroy]
   private
 
   def require_params
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description, category_ids: [])
   end
 
   def require_same_user
